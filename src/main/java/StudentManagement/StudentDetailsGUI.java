@@ -4,20 +4,22 @@
  */
 package StudentManagement;
 
+import Classes.Student;
+import Classes.StudentDetails;
 import gui.DatePicker;
 
 /**
  *
  * @author sachi
  */
-public class StudentDetails extends javax.swing.JFrame {
+public class StudentDetailsGUI extends javax.swing.JFrame {
 
-    private Object txtEnrollmentDate;
+ 
 
     /**
      * Creates new form StudentDetails
      */
-    public StudentDetails() {
+    public StudentDetailsGUI() {
         initComponents();
     }
 
@@ -39,16 +41,16 @@ public class StudentDetails extends javax.swing.JFrame {
         iop = new javax.swing.JLabel();
         eer = new javax.swing.JLabel();
         kkl = new javax.swing.JLabel();
-        txtEnrollmentdate = new javax.swing.JTextField();
+        txtEnrollmentDate = new javax.swing.JTextField();
         txtStudentName = new javax.swing.JTextField();
         txtStudentId = new javax.swing.JTextField();
         txtDateOfBirth = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         txtMobileNumber = new javax.swing.JTextField();
-        cmbSelectDegreeprogram = new javax.swing.JComboBox<>();
+        cmbDegreeProgram = new javax.swing.JComboBox<>();
         btnDateOfBirth = new javax.swing.JToggleButton();
         btnEnrollmentDate = new javax.swing.JToggleButton();
-        btnAddStudent = new javax.swing.JToggleButton();
+        btnAddStudentToTextFile = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +78,12 @@ public class StudentDetails extends javax.swing.JFrame {
         kkl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         kkl.setText("Degree Program:");
 
-        txtEnrollmentdate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEnrollmentDate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEnrollmentDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEnrollmentDateActionPerformed(evt);
+            }
+        });
 
         txtStudentName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -88,8 +95,8 @@ public class StudentDetails extends javax.swing.JFrame {
 
         txtMobileNumber.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        cmbSelectDegreeprogram.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmbSelectDegreeprogram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Degree Programme", "Computer Science", "Software Engineering", "Networking", "Cyber Security" }));
+        cmbDegreeProgram.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmbDegreeProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Degree Programme", "Computer Science", "Software Engineering", "Networking", "Cyber Security" }));
 
         btnDateOfBirth.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnDateOfBirth.setText("Select Date");
@@ -101,14 +108,14 @@ public class StudentDetails extends javax.swing.JFrame {
 
         btnEnrollmentDate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEnrollmentDate.setText("Select Date");
-        btnEnrollmentDate.addActionListener(new java.awt.event.ActionListener() {
+
+        btnAddStudentToTextFile.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAddStudentToTextFile.setText("Add Student to Text File");
+        btnAddStudentToTextFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnrollmentDateActionPerformed(evt);
+                btnAddStudentToTextFileActionPerformed(evt);
             }
         });
-
-        btnAddStudent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAddStudent.setText("Add Student");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -139,7 +146,7 @@ public class StudentDetails extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtEnrollmentdate, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtEnrollmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(49, 49, 49)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnEnrollmentDate)
@@ -152,7 +159,7 @@ public class StudentDetails extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(kkl)
                                             .addGap(18, 18, 18)
-                                            .addComponent(cmbSelectDegreeprogram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(cmbDegreeProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(eer)
                                             .addGap(18, 18, 18)
@@ -161,7 +168,7 @@ public class StudentDetails extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(290, 290, 290)
-                .addComponent(btnAddStudent)
+                .addComponent(btnAddStudentToTextFile)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -185,7 +192,7 @@ public class StudentDetails extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iop)
-                    .addComponent(txtEnrollmentdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEnrollmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEnrollmentDate))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -198,9 +205,9 @@ public class StudentDetails extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kkl)
-                    .addComponent(cmbSelectDegreeprogram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbDegreeProgram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addComponent(btnAddStudent)
+                .addComponent(btnAddStudentToTextFile)
                 .addContainerGap(105, Short.MAX_VALUE))
         );
 
@@ -223,10 +230,31 @@ public class StudentDetails extends javax.swing.JFrame {
        txtDateOfBirth.setText(datePicker.setPickedDate()); //txtDateOfBirth.setText(datePicker.setPickedDate());
     }//GEN-LAST:event_btnDateOfBirthActionPerformed
 
-    private void btnEnrollmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnrollmentDateActionPerformed
+    private void btnAddStudentToTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentToTextFileActionPerformed
+        
+        String studentName = txtStudentName.getText();
+        String studentId = txtStudentId.getText();
+        String dateOfBirth = txtDateOfBirth.getText();
+        String enrollmentDate = txtEnrollmentDate.getText();
+        String address = txtAddress.getText();
+        String mobileNumber = txtMobileNumber.getText();
+        String degreeprogram = cmbDegreeProgram.getSelectedItem().toString();
+        
+        Student student = new Student(studentName,studentId,dateOfBirth,enrollmentDate,address,mobileNumber,degreeprogram);
+        
+        StudentDetails studentDetails = new StudentDetails();
+        
+        studentDetails.addStudentToTextFile(student);
+        
+        
+        
+        
+    }//GEN-LAST:event_btnAddStudentToTextFileActionPerformed
+
+    private void txtEnrollmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnrollmentDateActionPerformed
         DatePicker datePicker = new DatePicker(this);
-       txtEnrollmentdate.setText(datePicker.setPickedDate());
-    }//GEN-LAST:event_btnEnrollmentDateActionPerformed
+       txtEnrollmentDate.setText(datePicker.setPickedDate());
+    }//GEN-LAST:event_txtEnrollmentDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,30 +273,31 @@ public class StudentDetails extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDetailsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDetailsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDetailsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StudentDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentDetailsGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new StudentDetails().setVisible(true);
+                new StudentDetailsGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnAddStudent;
+    private javax.swing.JToggleButton btnAddStudentToTextFile;
     private javax.swing.JToggleButton btnDateOfBirth;
     private javax.swing.JToggleButton btnEnrollmentDate;
-    private javax.swing.JComboBox<String> cmbSelectDegreeprogram;
+    private javax.swing.JComboBox<String> cmbDegreeProgram;
     private javax.swing.JLabel eer;
     private javax.swing.JLabel ioi;
     private javax.swing.JLabel iop;
@@ -279,10 +308,12 @@ public class StudentDetails extends javax.swing.JFrame {
     private javax.swing.JLabel rtty;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtDateOfBirth;
-    private javax.swing.JTextField txtEnrollmentdate;
+    private javax.swing.JTextField txtEnrollmentDate;
     private javax.swing.JTextField txtMobileNumber;
     private javax.swing.JLabel txtStudentDetailForm;
     private javax.swing.JTextField txtStudentId;
     private javax.swing.JTextField txtStudentName;
     // End of variables declaration//GEN-END:variables
+
+    
 }

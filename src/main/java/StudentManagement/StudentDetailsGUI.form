@@ -67,7 +67,7 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txtDateOfBirth" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
-                                              <Component id="txtEnrollmentdate" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                                              <Component id="txtEnrollmentDate" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -84,7 +84,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="kkl" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="cmbSelectDegreeprogram" max="32767" attributes="0"/>
+                                              <Component id="cmbDegreeProgram" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="eer" min="-2" max="-2" attributes="0"/>
@@ -102,7 +102,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
-                  <Component id="btnAddStudent" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddStudentToTextFile" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -131,7 +131,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="iop" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEnrollmentdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEnrollmentDate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnEnrollmentDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -147,10 +147,10 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="kkl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbSelectDegreeprogram" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbDegreeProgram" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="btnAddStudent" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddStudentToTextFile" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="105" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -221,12 +221,15 @@
             <Property name="text" type="java.lang.String" value="Degree Program:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEnrollmentdate">
+        <Component class="javax.swing.JTextField" name="txtEnrollmentDate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEnrollmentDateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtStudentName">
           <Properties>
@@ -263,7 +266,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbSelectDegreeprogram">
+        <Component class="javax.swing.JComboBox" name="cmbDegreeProgram">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -300,17 +303,17 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Select Date"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnrollmentDateActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="btnAddStudent">
+        <Component class="javax.swing.JToggleButton" name="btnAddStudentToTextFile">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Add Student"/>
+            <Property name="text" type="java.lang.String" value="Add Student to Text File"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddStudentToTextFileActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
