@@ -108,6 +108,11 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
 
         btnEnrollmentDate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEnrollmentDate.setText("Select Date");
+        btnEnrollmentDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnrollmentDateActionPerformed(evt);
+            }
+        });
 
         btnAddStudentToTextFile.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAddStudentToTextFile.setText("Add Student to Text File");
@@ -229,7 +234,7 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
         DatePicker datePicker = new DatePicker(this);
        txtDateOfBirth.setText(datePicker.setPickedDate()); //txtDateOfBirth.setText(datePicker.setPickedDate());
     }//GEN-LAST:event_btnDateOfBirthActionPerformed
-
+    
     private void btnAddStudentToTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentToTextFileActionPerformed
         
         String studentName = txtStudentName.getText();
@@ -252,9 +257,13 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddStudentToTextFileActionPerformed
 
     private void txtEnrollmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnrollmentDateActionPerformed
+        
+    }//GEN-LAST:event_txtEnrollmentDateActionPerformed
+
+    private void btnEnrollmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnrollmentDateActionPerformed
         DatePicker datePicker = new DatePicker(this);
        txtEnrollmentDate.setText(datePicker.setPickedDate());
-    }//GEN-LAST:event_txtEnrollmentDateActionPerformed
+    }//GEN-LAST:event_btnEnrollmentDateActionPerformed
 
     /**
      * @param args the command line arguments
