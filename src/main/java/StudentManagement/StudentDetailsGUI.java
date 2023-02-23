@@ -7,6 +7,9 @@ package StudentManagement;
 import Classes.Student;
 import Classes.StudentDetails;
 import gui.DatePicker;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -51,6 +54,7 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
         btnDateOfBirth = new javax.swing.JToggleButton();
         btnEnrollmentDate = new javax.swing.JToggleButton();
         btnAddStudentToTextFile = new javax.swing.JToggleButton();
+        btnSearchStudentInTextFile = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,73 +126,85 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
             }
         });
 
+        btnSearchStudentInTextFile.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSearchStudentInTextFile.setText("Search Student in Text Flie");
+        btnSearchStudentInTextFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchStudentInTextFileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(342, 342, 342)
-                        .addComponent(txtStudentDetailForm, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(267, 267, 267)
+                        .addComponent(txtStudentDetailForm, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(rtty)
+                            .addGap(80, 80, 80)
+                            .addComponent(txtAddress))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(iui)
+                                    .addGap(31, 31, 31))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(ioi)
+                                    .addGap(60, 60, 60)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtStudentId, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(iui)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ioi)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtStudentId, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(iop)
-                                            .addComponent(li))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtEnrollmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(49, 49, 49)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnEnrollmentDate)
-                                            .addComponent(btnDateOfBirth)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(rtty)
-                                        .addGap(80, 80, 80)
-                                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(kkl)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(cmbDegreeProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(eer)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(30, 30, 30))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(btnAddStudentToTextFile)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(iop)
+                            .addComponent(li))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEnrollmentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEnrollmentDate)
+                            .addComponent(btnDateOfBirth)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(eer)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(kkl)
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnAddStudentToTextFile)
+                                    .addGap(69, 69, 69)
+                                    .addComponent(btnSearchStudentInTextFile)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(cmbDegreeProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtStudentDetailForm, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtStudentDetailForm, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ioi)
+                            .addComponent(txtStudentId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iui)
                     .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ioi)
-                    .addComponent(txtStudentId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(li)
@@ -212,7 +228,9 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
                     .addComponent(kkl)
                     .addComponent(cmbDegreeProgram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addComponent(btnAddStudentToTextFile)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddStudentToTextFile)
+                    .addComponent(btnSearchStudentInTextFile, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
 
@@ -230,41 +248,70 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDateOfBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDateOfBirthActionPerformed
-        DatePicker datePicker = new DatePicker(this);
-       txtDateOfBirth.setText(datePicker.setPickedDate()); //txtDateOfBirth.setText(datePicker.setPickedDate());
-    }//GEN-LAST:event_btnDateOfBirthActionPerformed
-    
     private void btnAddStudentToTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentToTextFileActionPerformed
-        
-        String studentName = txtStudentName.getText();
+
         String studentId = txtStudentId.getText();
+        String studentName = txtStudentName.getText();
         String dateOfBirth = txtDateOfBirth.getText();
         String enrollmentDate = txtEnrollmentDate.getText();
         String address = txtAddress.getText();
         String mobileNumber = txtMobileNumber.getText();
         String degreeprogram = cmbDegreeProgram.getSelectedItem().toString();
-        
-        Student student = new Student(studentName,studentId,dateOfBirth,enrollmentDate,address,mobileNumber,degreeprogram);
-        
-        StudentDetails studentDetails = new StudentDetails();
-        
-        studentDetails.addStudentToTextFile(student);
-        
-        
-        
-        
-    }//GEN-LAST:event_btnAddStudentToTextFileActionPerformed
 
-    private void txtEnrollmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnrollmentDateActionPerformed
-        
-    }//GEN-LAST:event_txtEnrollmentDateActionPerformed
+        Student student = new Student(studentId,studentName,dateOfBirth,enrollmentDate,address,mobileNumber,degreeprogram);
+
+        StudentDetails studentDetails = new StudentDetails();
+
+        studentDetails.addStudentToTextFile(student);
+
+    }//GEN-LAST:event_btnAddStudentToTextFileActionPerformed
 
     private void btnEnrollmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnrollmentDateActionPerformed
         DatePicker datePicker = new DatePicker(this);
-       txtEnrollmentDate.setText(datePicker.setPickedDate());
+        txtEnrollmentDate.setText(datePicker.setPickedDate());
     }//GEN-LAST:event_btnEnrollmentDateActionPerformed
 
+    private void btnDateOfBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDateOfBirthActionPerformed
+        DatePicker datePicker = new DatePicker(this);
+        txtDateOfBirth.setText(datePicker.setPickedDate()); //txtDateOfBirth.setText(datePicker.setPickedDate());
+    }//GEN-LAST:event_btnDateOfBirthActionPerformed
+
+    private void txtEnrollmentDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnrollmentDateActionPerformed
+
+    }//GEN-LAST:event_txtEnrollmentDateActionPerformed
+
+    private void btnSearchStudentInTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStudentInTextFileActionPerformed
+       
+        try {
+            String studentId = txtStudentId.getText();
+            
+            StudentDetails studentDetails = new StudentDetails();
+            Student student = studentDetails.findStudentFromTextFile(studentId);
+            
+            txtStudentId.setText(student.getStudentID());
+            txtStudentName.setText(student.getStudentName());
+            txtDateOfBirth.setText(student.getDob());
+            txtEnrollmentDate.setText(student.getEnrollmentDate());
+            txtAddress.setText(student.getAddress());
+            txtMobileNumber.setText(student.getMobileNumber());
+            
+            
+            if (student.getDegreeProgram().equals("Computer Science")){
+                cmbDegreeProgram.setSelectedIndex(1);
+            }else if (student.getDegreeProgram().equals("Software Engineering")){
+                cmbDegreeProgram.setSelectedIndex(2);
+            }else if (student.getDegreeProgram().equals("Networking")){
+                cmbDegreeProgram.setSelectedIndex(3);
+            }else if (student.getDegreeProgram().equals("Cyber Security")){
+                cmbDegreeProgram.setSelectedIndex(4);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(StudentDetailsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_btnSearchStudentInTextFileActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -306,6 +353,7 @@ public class StudentDetailsGUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnAddStudentToTextFile;
     private javax.swing.JToggleButton btnDateOfBirth;
     private javax.swing.JToggleButton btnEnrollmentDate;
+    private javax.swing.JToggleButton btnSearchStudentInTextFile;
     private javax.swing.JComboBox<String> cmbDegreeProgram;
     private javax.swing.JLabel eer;
     private javax.swing.JLabel ioi;

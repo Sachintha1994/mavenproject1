@@ -9,17 +9,17 @@ package Classes;
  * @author sachi
  */
 public class Student {
-    String studentName;
     String studentID;
+    String studentName;
     String dob;
     String enrollmentDate;
     String address;
     String mobileNumber;
     String degreeProgram;
 
-    public Student(String studentName, String studentID, String dob, String enrollmentDate, String address, String mobileNumber, String degreeProgram) {
-        this.studentName = studentName;
+    public Student(String studentID, String studentName, String dob, String enrollmentDate, String address, String mobileNumber, String degreeProgram) {
         this.studentID = studentID;
+        this.studentName = studentName;
         this.dob = dob;
         this.enrollmentDate = enrollmentDate;
         this.address = address;
@@ -27,12 +27,8 @@ public class Student {
         this.degreeProgram = degreeProgram;
     }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public Student() {
+        
     }
 
     public String getStudentID() {
@@ -41,6 +37,13 @@ public class Student {
 
     public void setStudentID(String studentID) {
         this.studentID = studentID;
+    }
+      public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getDob() {

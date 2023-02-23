@@ -1,7 +1,8 @@
 
 
-     Select Degree Programme
-     Select Degree Programme
-Thilina e15386 2023-02-15  Colombo 0712633794 Computer Science
-Sachintha E/15/386 2023-02-22  Colombo 0712633794 Software Engineering
-Thilina Sachintha Weerasinghe E/15/386 2023-02-23 2023-02-01 Beliatta 0712633794 Software Engineering
+Desh,s1,2023-02-06,2023-02-23,colombo,1333333333333333-3143,Software Engineering
+2,thilina,,2023-02-13,2023-02-20,colombo,38392-232932,Computer Science
+1,thilina,,2023-02-02,2023-02-22,colombo,334343-34,Computer Science
+Sachintha,123,2022-11-14,2023-02-22,Beliatta,0712633794,Software Engineering
+Sachintha,124,2022-11-14,2023-02-22,Beliatta,0712633794,Cyber Security
+23,thtj,2023-02-13,2023-02-22,kandy,4220240-234234,Computer Science

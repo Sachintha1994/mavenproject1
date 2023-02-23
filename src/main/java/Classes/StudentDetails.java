@@ -4,9 +4,13 @@
  */
 package Classes;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,8 +32,8 @@ public class StudentDetails {
         
         try {
             PrintWriter out = null;
-            String studentData = student.getStudentName()+" "+ student.getStudentID()+" "+student.getDob()+" "+student.getEnrollmentDate()
-                    +" "+ student.getAddress()+" "+student.getMobileNumber()+" "+ student.getDegreeProgram();
+            String studentData = student.getStudentID()+","+student.getStudentName()+","+student.getDob()+","+student.getEnrollmentDate()
+                    +","+ student.getAddress()+","+student.getMobileNumber()+","+ student.getDegreeProgram();
             
             
             
@@ -45,5 +49,34 @@ public class StudentDetails {
             Logger.getLogger(StudentDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
+    }
+    
+    public Student findStudentFromTextFile(String studentId) throws IOException{
+    
+        Student student = null;
+        try {
+            
+            FileInputStream fileInputStream = new FileInputStream(FILEPATH);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+            
+            String readLine;
+            
+            while((readLine = (String) bufferedReader.readLine())!= null){
+                String[] detailsStudent = readLine.split(",");
+                if (studentId.equals(detailsStudent[0])){
+                    student = new Student();
+                    student.setStudentID(detailsStudent[0]);
+                    student.setStudentName(detailsStudent[1]);
+                    student.setDob(detailsStudent[2]);
+                    student.setEnrollmentDate(detailsStudent[3]);
+                    student.setAddress(detailsStudent[4]);
+                    student.setMobileNumber(detailsStudent[5]);
+                    student.setDegreeProgram(detailsStudent[6]);
+                }
+            }  
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(StudentDetails.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+       return student; 
     }
 }
